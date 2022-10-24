@@ -1,0 +1,8 @@
+Papers/
+Python/*.pdf
+Python/data/
+Python/fig
+write/
+article/*.gz
+article/stations.aux
+article/stations.log
