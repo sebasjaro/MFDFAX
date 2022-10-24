@@ -1,6 +1,6 @@
-\documentclass[twocolumn, amsmath,amssymb, superscriptaddress]{revtex4-2}
+%\documentclass[twocolumn, amsmath,amssymb, superscriptaddress]{revtex4-2}
 %\documentclass[onecolumn, showpacs, preprint,aps,amsmath, amssymb, superscriptaddress]{revtex4}
-%\documentclass[onecolumn, preprint,aps,amsmath, amssymb, superscriptaddress]{revtex4}
+\documentclass[onecolumn, preprint,aps,amsmath, amssymb, superscriptaddress]{revtex4}
 
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
@@ -10,6 +10,7 @@
 \usepackage[dvips]{graphicx}
 \usepackage{times}
 \usepackage{setspace}
+\usepackage{booktabs}
 
 \graphicspath{{figures/}}
 
@@ -87,13 +88,30 @@ The SOI, Thaity and Darwin time series are plotted as a function of time in Figs
 \label{fig:stations}
 \end{figure}
 
+We present the descriptive statistics of the indexes used in this study in table \ref{tab:descriptive}. The tables present the mean, minimum, and maximum and the standard deviation of the series, as well as skewness and kurtosis levels.
+\begin{table}[]
+\caption{Descriptive statistics of studied series.}
+\label{tab:descriptive}
+\begin{tabular}{lccc}
+\hline
+          & SOI    & Darwin & Tahity \\ \hline
+Mean      & 0.053  & 1010   & 1013   \\
+Std. Dev. & 1.28   & 2.65   & 1.71   \\
+Minimum   & -4.344 & 1003   & 1007   \\
+Maximum   & 4.073  & 1017   & 1018   \\
+Skewness  & -0.074 & -0.212 & -0.064 \\
+Kurtosis  & 0.217  & -0.948 & -0.200 \\ \hline
+\end{tabular}
+\end{table}
+%All series are negatively skewed, suggesting long left tails. The values of the excess of kurtosis are below minus two for the three series indicating that the indexes are platykurtic.
+
+
 %There are several slight variations in the SOI values calculated at various centres.
 
 %Here we calculate the SOI based on the method given by Ropelewski and Jones (1987). These authors It uses a second normalization step, and was the Climate Analysis Centre's standard method in 1987. The reader is also referred to Allan et al. (1991) and Können et al. (1998) for details of the early pressure sources and methods used to compile the series from 1866 onwards.
 
 %Main reference to cite when using this SOI index:
 %Ropelewski, C.F. and Jones, P.D., 1987: An extension of the Tahiti-Darwin Southern Oscillation Index. Monthly Weather Review 115, 2161-2165.
-
 
 \section{Methodology}
 \label{sec:method}
@@ -193,6 +211,15 @@ F_{DCCA}\sim n^\lambda
 
 where  is the DCCA cross-correlation exponent. The value of $\lambda$ the scaling exponent can be calculated from a linear regression on a plot of $\log F$ vs $\log \lambda$. If,however, the detrended covariance oscillates around zero as a function of the time scale, there are no long-range cross-correlations.
 
+In order to quantify the information about cross correlations provided by the DCCA Zebende (2011) built a correlation coefficient that allows to quantify cross-correlation levels across time scales between two different time series. This approach combines the DCCA with the detrended fluctuation analysis (DFA). This Detrended cross-correlation coefficient is defined as the ratio between the detrended covariance function $F^2_{DCCA}$ and the detrended variance function \cite{Zebende}
+\begin{equation}
+    \rho_{DCCA}(n) =\dfrac{F^2_{DCCA(n)}}{F_{DFA_X}F_{DFA_Y}}
+\end{equation}
+where $F_{DFA_X}$ stands for the DFA method applied to the serie $X$.
+
+DCCA coefficient is a dimensionless quantity and its
+values are ranging between $-1 \leq \rho_{DCCA} \leq$. If $\rho = 1$ perfect cross-correlation between series exist,if $\rho = -1$ perfect anticross-correlation exist and there is no cross-correlation bewtween the series if $\rho = 0$. 
+
 MF-DCCA is a generalization of the DCCA introduced by Zhou \cite{Zhou} and differs from MFDFA in that there are now two detrended signals  $\tilde{X}_v(s,i)$ and $\tilde{Y}v(s,i)$ in each window. Therefore, the variance defined in equations \ref{eq:var1} and \ref{eq:var2} becomes covariance
 
 \begin{equation}
@@ -229,6 +256,22 @@ Like for the MFDFA if $\lambda(q)$ does not change with $q$, the cross-correlati
 
 \section{Results}
 \label{resultados}
+
+%\begin{table}[]
+%\begin{tabular}{lrccrc}
+%\hline
+%\multicolumn{1}{c}{Index} & \multicolumn{1}{c}{$<x>$} & $\sigma$ & $x_{min}$ & \multicolumn{1}{c}{$\alpha$} & $\sigma_{\alpha}$ \\ \hline
+%Darwin                    & -0.00037                  & 1.652    & 4.400     & 11.549                       & 3.73              \\
+%Tahity                    & 0.00112                   & 1.360    & 1.799     & 4.512                        & 0.19              \\
+%SOI                       & 0.00109                   & 1.018    & 1.060     & 3.679                        & 0.12              \\
+%BEI                       & -0.00036                  & 0.498    & 1.099     & 6.997                        & 0.69              \\ \hline
+%\end{tabular}
+%\caption{}
+%\label{tab:1}
+%\end{table}
+
+Firstly we applied the DFA method to the three time series. We continued our analysis by applying the DCCA method described in the previous section was applied to study the correlation between the time series corresponding to the Darwin and Tahity stations and those corresponding to those of each station and the SOI.
+
 \subsection{Power-Law Distribution}
 
 \begin{figure}
@@ -237,18 +280,6 @@ Like for the MFDFA if $\lambda(q)$ does not change with $q$, the cross-correlati
 \label{fig:ccdf}
 \end{figure}
 
-\begin{table}[]
-\begin{tabular}{lrccrc}
-\hline
-\multicolumn{1}{c}{Index} & \multicolumn{1}{c}{$<x>$} & $\sigma$ & $x_{min}$ & \multicolumn{1}{c}{$\alpha$} & $\sigma_{\alpha}$ \\ \hline
-Darwin                    & -0.00037                  & 1.652    & 4.400     & 11.549                       & 3.73              \\
-Tahity                    & 0.00112                   & 1.360    & 1.799     & 4.512                        & 0.19              \\
-SOI                       & 0.00109                   & 1.018    & 1.060     & 3.679                        & 0.12              \\
-BEI                       & -0.00036                  & 0.498    & 1.099     & 6.997                        & 0.69              \\ \hline
-\end{tabular}
-\caption{}
-\label{tab:my-table}
-\end{table}
 
 \begin{thebibliography}{99}
 \bibitem{Kantelhardt}
@@ -305,6 +336,8 @@ Dickey, D.A.; Fuller, W.A. Likelihood Ratio Statistics for Autoregressive Time S
 % Reference 18
 \bibitem{Theiler}
 Theiler J, Galdrikian B, Longtin A, Eubank S, Farmer D. J. Using surrogate data to detect nonlinearity in time series. In: {\em Nonlinear modeling and forecasting}. Casdagli M., Eubank S.(eds) Addison-Wesley, Redwood City, CA, 1992, 163--188
-\end{thebibliography}
+\bibitem{Zebende}Zebende G, da Silva P A and Filho A M 2011 Study of crosscorrelation
+in a self-affine time series of taxi accidents.Physica A 390 1677–83
+\end{thebibliography}0
 
 \end{document}
