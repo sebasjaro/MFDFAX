@@ -115,7 +115,33 @@ Kurtosis  & 0.217  & -0.948 & -0.200 \\ \hline
 
 \section{Methodology}
 \label{sec:method}
+\subsection{Detendred fluctuation analysis (DFA)}
 
+The detrended fluctuation analysis (DFA) developed by Peng et al. \cite{Peng_3} is an important method  to detect the presence of long-range correlations in time series. By applying DFA, an exponent similar to Hurst is obtained, with the difference that this method can also be applied when the dynamics are not stationary. The DFA has been successfully applied to a wide range of time series in various fields such as  analysis of DNA \cite{Buldyrev_2},\cite{Buldyrev_3}, heart rate dynamics \cite{Peng_2}, \cite{Viswanathan} , \cite{Echeverria}, economical time series \cite{Cizeau}, \cite{Ausloos}, \cite{Jaroszewicz}, \cite{Mariani}, geophysics \cite{Ribeiro}, among others.
+
+We can summarize the DFA procedure in the next three steps
+
+\begin{enumerate}
+\item The data series $A(k)$ is integrated (cumulatively summed, 
+\begin{equation}
+y(k) = \sum_{i=1}^{k}[A(i)-<A>]
+\end{equation} and then segmented into boxes of various lengths $\Delta n$
+\item In each box the serie is detrended by substracting the local trend $y_n(k)$ and the mean square residual $F(\Delta n)$ is found as
+\begin{equation}
+F(\Delta n) = \sqrt{\dfrac{1}{N}\displaystyle\sum_{i=1}^{k}[y(k)-y_n(k)]^2}
+\end{equation} 
+\item The DFA exponent $\alpha$ is the slope of $F(\Delta n)$ in a log-log plot.
+\end{enumerate}
+The DFA exponent is interpreted as an estimation of the Hurst exponent.
+The comparison between the exponent $\delta$ derived from the DEA (BEDE) method and $\alpha$ allows to determine the nature of the diffusive process. In the fractional browinian motion case we have
+\begin{equation}
+\delta = \alpha 
+\end{equation}
+and in the case of Levy statistics the following relationship applies
+\begin{equation}
+\delta = \dfrac{1}{3-2\alpha}
+\label{eq:levy}
+\end{equation}
 
 \subsection{Multifractal Detrended Fluctuation Analysis}
 
@@ -343,6 +369,58 @@ Dickey, D.A.; Fuller, W.A. Likelihood Ratio Statistics for Autoregressive Time S
 Theiler J, Galdrikian B, Longtin A, Eubank S, Farmer D. J. Using surrogate data to detect nonlinearity in time series. In: {\em Nonlinear modeling and forecasting}. Casdagli M., Eubank S.(eds) Addison-Wesley, Redwood City, CA, 1992, 163--188
 \bibitem{Zebende}Zebende G, da Silva P A and Filho A M 2011 Study of crosscorrelation
 in a self-affine time series of taxi accidents.Physica A 390 1677–83
+
+\bibitem{Dijkstra} \textsc{H. A. Dijkstra},
+\textit{Nonlinear Physical Oceanography: A Dynamical
+Systems Approach to the Large Scale Ocean Circulation and
+El Ni\~no}, Springer Science, New York, 2005.
+
+\bibitem{Sarachik} \textsc{E. S. Sarachik and M. A. Cane},
+\textit{The El Ni\~no-Southern Oscillation
+Phenomenon}, Cambridge University Press, Cambridge, UK, 2010.
+
+\bibitem{Philander} \textsc{S.G. Philander},
+\textit{El Ni\~no, La Ni\~na and the Southern Oscillation},
+ Academic Press, San Diego, 1990.
+ 
+\bibitem{Walker} \textsc{Walker, G.}
+\textit{World weather}
+\textit{Quarterly Journal of the Royal Meteorological Society}, \textbf{8}, 54, 79-87,1928
+
+\bibitem{Peng_3} \textsc{C.K. Peng, S.V. Buldyrev, S. Havlin, M. Simons, H.E. Stanley, A.L. Goldberger},\textit{Mosaic organization of nucleotides.} Phys. Rev. E, 49 (1994), p. 1685
+
+\bibitem{Huang} \textsc{Huang, Norden E.  and Shen, Zheng  and Long, Steven R.  and Wu, Manli C.  and Shih, Hsing H.  and Zheng, Quanan  and Yen, Nai-Chyuan  and Tung, Chi Chao  and Liu, Henry H.}, \textit{The empirical mode decomposition and the Hilbert spectrum for nonlinear and non-stationary time series analysis}, \textit{Proceedings of the Royal Society of London. Series A: Mathematical, Physical and Engineering Sciences}, 454, 1971, 903-995, 1998
+\bibitem{Buldyrev_2}S.V. Buldyrev, N.V. Dokholyan, A.L. Goldberger, S. Havlin, C.-K. Peng, H.E. Stanley, G.M. Viswanathan
+Analysis of DNA sequences using methods of statistical physics.
+Physica A, 249 (1998), p. 430
+\bibitem{Buldyrev_3}S.V. Buldyrev, A.L. Goldberger, S. Havlin, R.N. Mantegna, M.E. Matsa, C.-K. Peng, M. Simons, H.E. Stanley
+Long-range correlation properties of coding and noncoding DNA sequences: GenBank analysis
+Phys. Rev. E, 51 (1995), p. 5084
+\bibitem{Peng_2}C.-K. Peng, J. Mietus, J.M. Hausdorff, S. Havlin, H.E. Stanley, A.L. Goldberger
+Long-Range anticorrelations and non-Gaussian behavior of the heartbeat
+Phys. Rev. Lett., 70 (1993), p. 1343
+\bibitem{Viswanathan}G.M. Viswanathan, C.-K. Peng, H.E. Stanley, A.L. Goldberger
+Deviations from uniform power law scaling in nonstationary time series.
+Phys. Rev. E, 55 (1997), p. 845
+\bibitem{Echeverria}J. C. Echeverr\'ia
+Interpretation of heart rate variability via detendred fluctuation analysis.
+Chaos: An Interdisciplinary Journal of Nonlinear Science 13 (2003), p. 467
+\bibitem{Cizeau}P. Cizeau, Y.H. Liu, M. Meyer, C.-K. Peng, H.E. Stanley
+Volatility distribution in the S\&P500 stock index.
+Physica A, 245 (1997), p. 441
+\bibitem{Ausloos}M. Ausloos, K. Ivanova
+Introducing \textit{False} EUR and \textit{False} EUR exchange rates.
+Physica A, 286 (2000), p. 353
+\bibitem{Jaroszewicz}Jaroszewicz S., Mariani M., Ferraro M.
+Long correlations and truncated Levy walks applied to the study Latin-American market indices
+Physica A, 355 (2005), pp. 461-474
+\bibitem{Mariani}Mariani M., Florescu I., Varela M., Ncheuguima E.
+Long correlations and Levy models applied to the study of memory effects in high frequency (tick) data
+Physica A, 388 (2009), pp. 1659-1664
+\bibitem{Ribeiro}R. A. Ribeiro, M. V. M. Mata, L. S. Lucena, U. L. Fulco, and G. Corso
+Spatial analysis of oil reservoirs using detendred fluctuation analysis of geophysical data.
+Nonlin. Processes Geophys., 21, 1043–1049, 2014
+
 \end{thebibliography}0
 
 \end{document}
