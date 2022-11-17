@@ -296,9 +296,13 @@ Like for the MFDFA if $\lambda(q)$ does not change with $q$, the cross-correlati
 %\label{tab:1}
 %\end{table}
 
-Firstly we applied the DFA method to the three time series.
+Firstly we applied the DFA method to the three time series. The size of the analyzed windows ranges from 10 to $N/4$ where $N$ is the lenght of each series. The double log plot of the fluctuation function for the studied data are shown in fig. \ref{fig:dfa}. In this figure we can see that the value of scale exponent for large window sizes is well bellow than 0.5 in the cases of Darwin and SOI indexes suggesting that the series are anti-persistent. The anti-persistent behavior means that an increase in the current period is more likely followed by a decrease in the next period and vice versa. In the case of SOI we can observe a crossover at n = 1.7 that allows us to differentiate between two different scale regimes. The value of the exponent before the crossover reveals a persistent behaviour of the $1/f$ type (pink noise). Interestingly the value of the scale exponent is close to 0.5 for the Tahity case. This fact is more noticeable when several orders of the DFA method are applied. For example for the DFA2 (second order) the value of the exponent is 0.52. Therefore, in the case of Tahity, we cannot ensure that there are long-range correlations. 
 
-
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{DFA.pdf}} 
+\caption{DFA fluctuation function as function of the time scale for the three series.}
+\label{fig:dfa}
+\end{figure}
 
 
 We continued our analysis by applying the DCCA method described in the previous section was applied to study the correlation between the time series corresponding to the Darwin and Tahity stations and those corresponding to those of each station and the SOI.
