@@ -283,6 +283,9 @@ Like for the MFDFA if $\lambda(q)$ does not change with $q$, the cross-correlati
 \section{Results}
 \label{resultados}
 
+\subsection{DFA}
+\label{results_dfa}
+
 %\begin{table}[]
 %\begin{tabular}{lrccrc}
 %\hline
@@ -304,16 +307,56 @@ Firstly we applied the DFA method to the three time series. The size of the anal
 \label{fig:dfa}
 \end{figure}
 
+\subsection{MFDFA}
+\label{results_mfdfa}
+
+The next step was to study the full range of generalized Hurst exponents by means of the MFDFA method. In other words we apply this method to explore the multifractal properties of the series. We applied the MDFA for values of $q$ from -10 to 10 and and in the same temporal range that we used for the DFA. Figs.\ref{fig:mfdfa_dar} to \ref{fig:mfdfa_soi} show the log-log plots of the fluctuation functions for $q=-10,-5,0,5,10$ as examples for each of the series analyzed.
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{MFDFA_dar.pdf}} 
+\caption{Fluctuation functions for Darwin data}
+\label{fig:mfdfa_dar}
+\end{figure}
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{MFDFA_tah.pdf}} 
+\caption{Fluctuation functions for Tahity data}
+\label{fig:mfdfa_tah}
+\end{figure}
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{MFDFA_soi.pdf}} 
+\caption{Fluctuation functions for SOI data}
+\label{fig:mfdfa_soi}
+\end{figure}
+
+
+
+The table \ref{tab:mfdfa} summarizes the values obtained for the complexity measurements from
+the analysis of the multifractal spectra. The multifractal spectra of
+the time series are shown in Fig. 10.
+The multifractal spectrum corresponding to the series of Darwin and SOI is left-skewed whereas that corresponding to the Tahity series is right-skewed. 
+
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{ c  c  c  c  c  c  c  c }
+\hline
+
+   & $\alpha_{min}$  & $\alpha_{max}$ & $\alpha_0$ & $f(\alpha_{min})$ & $f(\alpha_{max})$ & $\omega$& $a_s$ \\ \hline
+Darwin   & 0.31  & 0.36  & 0.32  & 0.92 &  0.87 &  0.05 &  0.05 \\
+Tahity     & 0.34  & 0.52  & 0.45  & 0.51 &  0.64 &  0.19 &  -0.13 \\
+SOI     & 0.42  & 1.01  & 0.65  & 0.39 &  0.52 &  0.59 &  0.34 \\
+\hline
+\end{tabular}
+\caption{Characteristics of the multifractal spectrum}
+\label{tab:mfdfa}
+\end{center}
+\end{table}
+
 
 We continued our analysis by applying the DCCA method described in the previous section was applied to study the correlation between the time series corresponding to the Darwin and Tahity stations and those corresponding to those of each station and the SOI.
 
-\subsection{Power-Law Distribution}
 
-\begin{figure}
-\centering{\includegraphics[width=0.42\textwidth]{ccdf.pdf}} 
-\caption{Complemenatary cumulative distribution functions}
-\label{fig:ccdf}
-\end{figure}
 
 
 \begin{thebibliography}{99}
