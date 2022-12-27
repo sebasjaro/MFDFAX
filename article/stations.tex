@@ -332,10 +332,8 @@ The next step was to study the full range of generalized Hurst exponents by mean
 
 
 
-The table \ref{tab:mfdfa} summarizes the values obtained for the complexity measurements from
-the analysis of the multifractal spectra. The multifractal spectra of
-the time series are shown in Fig. 10.
-The multifractal spectrum corresponding to the series of Darwin and SOI is left-skewed whereas that corresponding to the Tahity series is right-skewed. 
+
+
 
 \begin{table}[t]
 \begin{center}
@@ -353,6 +351,31 @@ SOI     & 0.42  & 1.01  & 0.65  & 0.39 &  0.52 &  0.59 &  0.34 \\
 \end{center}
 \end{table}
 
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{H.pdf}} 
+\caption{The $q$ dependence of the generalized Hurst exponent}
+\label{fig:spectrum}
+\end{figure}
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{tau.pdf}} 
+\caption{Plots of $\tau(q)$ vs $q$}
+\label{fig:spectrum}
+\end{figure}
+
+In fig. \ref{fig:spectrum} the multifractal spectrum for the three series is shown and in table \ref{tab:mfdfa} the properties of the spectra are summarized. As can be seen both in the table and in the graph, the width of the spectrum $(\omega)$ corresponding to the SOI is much larger than that corresponding to the stations indicating stronger multifractality for the former. Furthermore we can see that the multifractal spectrum corresponding to the series of Darwin and SOI is left-skewed whereas that corresponding to the Tahity series is right-skewed. The left-sided asymmetry that we can observe in the tahity spectrum corresponds to a  multifractality on the level of larger fluctuations and its degeneration towards monofractality with fluctuations decreasing. In the case of the other two indices right-sided asymmetry indicates that multifractality is more developed on the level of smaller fluctuations and the larger ones are suppressed.
+
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{interp_spec.pdf}} 
+\caption{Multifractal spectra for the studied series}
+\label{fig:spectrum}
+\end{figure}
+
+
+
+Two sources of multifractality can be recognized: (i) multifractality due to a broad probability density function of the values of the series, and (ii) different long range correlations for small and large fluctuations. To test the type of multifractality one can remove the temporal correlations by random shuffling the series. If the multifractality is of the type stated in the second case the spectrum should be significantly narrowed. Random shuffling simply consists of generating a new time series by randomly permuting the elements of the original series. in order to check if multifractality comes from broad distributions we analyze surrogate data. To generate them we apply amplitude adjusted fourier transform to the original series. The surrogate time series data did not destroy the correlation characteristics of the original time series data, it only weakened the Gaussian distribution of the original time series data. Therefore, if the multifractality comes from broad distributions, the spectrum of the surrogated series should show the absence of multifractality. Table \ref{tab:mfdfa_compar} details the main characteristics of the spectra of the original, shuffled and surrogated series. 
 
 We continued our analysis by applying the DCCA method described in the previous section was applied to study the correlation between the time series corresponding to the Darwin and Tahity stations and those corresponding to those of each station and the SOI.
 
