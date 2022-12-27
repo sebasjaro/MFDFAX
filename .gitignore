@@ -6,3 +6,14 @@ write/
 article/*.gz
 article/stations.aux
 article/stations.log
+Python/.ipynb_checkpoints/DCCA-checkpoint.ipynb
+Python/.ipynb_checkpoints/MFDCCA-checkpoint.ipynb
+Python/.ipynb_checkpoints/MFDFA-checkpoint.ipynb
+Python/.ipynb_checkpoints/Test_DFA-checkpoint.ipynb
+Python/Test_DFA.ipynb
+Python/__pycache__/
+Python/iaaft-main/
+Python/iaaft.py
+Python/prueba/
+SOI/
+pyunicorn-v0.6.0.post1.pd
