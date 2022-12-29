@@ -355,13 +355,13 @@ SOI     & 0.42  & 1.01  & 0.65  & 0.39 &  0.52 &  0.59 &  0.34 \\
 \begin{figure}
 \centering{\includegraphics[width=.6\textwidth]{H.pdf}} 
 \caption{The $q$ dependence of the generalized Hurst exponent}
-\label{fig:spectrum}
+\label{fig:H}
 \end{figure}
 
 \begin{figure}
 \centering{\includegraphics[width=.6\textwidth]{tau.pdf}} 
 \caption{Plots of $\tau(q)$ vs $q$}
-\label{fig:spectrum}
+\label{fig:tau}
 \end{figure}
 
 In fig. \ref{fig:spectrum} the multifractal spectrum for the three series is shown and in table \ref{tab:mfdfa} the properties of the spectra are summarized. As can be seen both in the table and in the graph, the width of the spectrum $(\omega)$ corresponding to the SOI is much larger than that corresponding to the stations indicating stronger multifractality for the former. Furthermore we can see that the multifractal spectrum corresponding to the series of Darwin and SOI is left-skewed whereas that corresponding to the Tahity series is right-skewed. The left-sided asymmetry that we can observe in the tahity spectrum corresponds to a  multifractality on the level of larger fluctuations and its degeneration towards monofractality with fluctuations decreasing. In the case of the other two indices right-sided asymmetry indicates that multifractality is more developed on the level of smaller fluctuations and the larger ones are suppressed.
@@ -375,7 +375,47 @@ In fig. \ref{fig:spectrum} the multifractal spectrum for the three series is sho
 
 
 
-Two sources of multifractality can be recognized: (i) multifractality due to a broad probability density function of the values of the series, and (ii) different long range correlations for small and large fluctuations. To test the type of multifractality one can remove the temporal correlations by random shuffling the series. If the multifractality is of the type stated in the second case the spectrum should be significantly narrowed. Random shuffling simply consists of generating a new time series by randomly permuting the elements of the original series. in order to check if multifractality comes from broad distributions we analyze surrogate data. To generate them we apply amplitude adjusted fourier transform to the original series. The surrogate time series data did not destroy the correlation characteristics of the original time series data, it only weakened the Gaussian distribution of the original time series data. Therefore, if the multifractality comes from broad distributions, the spectrum of the surrogated series should show the absence of multifractality. Table \ref{tab:mfdfa_compar} details the main characteristics of the spectra of the original, shuffled and surrogated series. 
+Two sources of multifractality can be recognized: (i) multifractality due to a broad probability density function of the values of the series, and (ii) different long range correlations for small and large fluctuations. To test the type of multifractality one can remove the temporal correlations by random shuffling the series. If the multifractality is of the type stated in the second case the spectrum should be significantly narrowed. Random shuffling simply consists of generating a new time series by randomly permuting the elements of the original series. in order to check if multifractality comes from broad distributions we analyze surrogate data. To generate them we apply amplitude adjusted fourier transform to the original series. The surrogate time series data did not destroy the correlation characteristics of the original time series data, it only weakened the Gaussian distribution of the original time series data. Therefore, if the multifractality comes from broad distributions, the spectrum of the surrogated series should show the absence of multifractality. Table \ref{tab:mfdfa_compar} details the main characteristics of the spectra of the original, shuffled and surrogated series.
+
+As we can see in fig. \ref{fig:spectrum_shuffle} the singularity spectrum $f(\alpha)$ for the shuffled series is narrower than that of the originals ones and $\alpha_0$ is close to 0.5. 
+
+In order to obtain surrogates we applied the iterate amplitud adjusted Fourier transform (IAAFT). Fig \ref{fig:spectrum_surrogate} shows the singularity spectrum obtained from surrogate data. 
+
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{spectrum_shuffle.pdf}} 
+\caption{Multifractal spectra for the shuffled series}
+\label{fig:spectrum_shuffle}
+\end{figure}
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{spectrum_surro.pdf}} 
+\caption{Multifractal spectra for the surrogated series}
+\label{fig:spectrum_surrogate}
+\end{figure}
+
+Comparing the two figures we can see that the width of the spectrum of the surrogate data is larger than that of the shuffled ones. This allows us to deduce that long-term correlations play an important role in the multifractality of the data. This is confirmed by the analysis of the absolute value of the differences of the exponent H for original and shuffled data ($\lvert H_{corr}(q)\rvert$) and for original and surrogate data ($\lvert H_{pdf}(q)\rvert$). As we can see in figs. \ref{fig:h-hshuff} and \ref{fig:h-hsurr} $\lvert H_{corr}(q)\rvert > \lvert H_{pdf}(q)\rvert$. This means that the effect of long-range correlations is larger than the broad probability density function. However, non-zero values of $\lvert H_{corr}(q)\rvert$ and $\lvert H_{pdf}(q)\rvert$ indicate that both influence the mutifractality.
+
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{H-Hshuff.pdf}} 
+\caption{Multifractal spectra for the shuffled series}
+\label{fig:h-hshuff}
+\end{figure}
+
+\begin{figure}
+\centering{\includegraphics[width=.6\textwidth]{H-Hsurr.pdf}} 
+\caption{Multifractal spectra for the surrogated series}
+\label{fig:h-hsurr}
+\end{figure}
+
+
+In summary the analyisis performed shows that the mean source of multifractality is the correlation of the values of the series.
+
+
+
+\subsection{DCCA}
+\label{results_dcca}
 
 We continued our analysis by applying the DCCA method described in the previous section was applied to study the correlation between the time series corresponding to the Darwin and Tahity stations and those corresponding to those of each station and the SOI.
 
