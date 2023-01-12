@@ -122,54 +122,31 @@ The detrended fluctuation analysis (DFA) developed by Peng et al. \cite{Peng_3} 
 We can summarize the DFA procedure in the next three steps
 
 \begin{enumerate}
-\item The data series $A(k)$ is integrated (cumulatively summed, 
+\item Let $A(k)$ be a possibly non-stationary time series of length $N$. We, first, construct the trajectory or the 'profile' by subtracting from the times series its average and the summing cumulatively.
 \begin{equation}
 y(k) = \sum_{i=1}^{k}[A(i)-<A>]
-\end{equation} and then segmented into boxes of various lengths $\Delta n$
-\item In each box the serie is detrended by substracting the local trend $y_n(k)$ and the mean square residual $F(\Delta n)$ is found as
-\begin{equation}
-F(\Delta n) = \sqrt{\dfrac{1}{N}\displaystyle\sum_{i=1}^{k}[y(k)-y_n(k)]^2}
+\label{profile}
 \end{equation} 
-\item The DFA exponent $\alpha$ is the slope of $F(\Delta n)$ in a log-log plot.
+\item The profile is sub-divided into $N_s=\text{int}(N/s)$ non-overlapping windows of equal length $s$. Since the length $N$ of the series may not be an integer multiple of the window size $s$, and a short part of the profile $y(k)$ at the end may be disregarded by the procedure, the sub-division is performed also starting from the opposite end, obtaining a total of $2N_S$ segments.
+
+\item In each window $v$ the serie is detrended by substracting the local trend $y_n(k)$, given by a polynomial regression of order $m$,  and the mean square residual $F(v,s)$, for $v=1,\dots,2N_s$, is found as
+\begin{equation}
+F(v,s) = \sqrt{\dfrac{1}{s}\displaystyle\sum_{i=1}^{s}\left\lbrace y[(v-1)s+i]-y_n[(v-1)s+i]\right\rbrace^2}
+\end{equation}
+Typically the regression is linear.  
+\item The DFA exponent $\alpha$ is the slope of $F(s)$ line in a log-log plot. It can be interpreted as an estimation of the Hurst exponent.
 \end{enumerate}
-The DFA exponent is interpreted as an estimation of the Hurst exponent.
-The comparison between the exponent $\delta$ derived from the DEA (BEDE) method and $\alpha$ allows to determine the nature of the diffusive process. In the fractional browinian motion case we have
-\begin{equation}
-\delta = \alpha 
-\end{equation}
-and in the case of Levy statistics the following relationship applies
-\begin{equation}
-\delta = \dfrac{1}{3-2\alpha}
-\label{eq:levy}
-\end{equation}
 
 \subsection{Multifractal Detrended Fluctuation Analysis}
 
-As mentioned in the introduction, in this study MFDFA method was applied to study the multifractal characteristics of the analized temporal series. The MFDFA is a well-known technique, and is commonly used to detect multifractality in a time series \cite{Kantelhardt} which can be summarized as follows.
-
-Let $x(i)$ for $i=1,\ldots,N$ be a possibly non-stationary time series, where $N$ indicates its length. We, first, construct the "trajectory" or the "profile" by integration after subtracting from the time series its average $x_{ave}$.
-
+As mentioned in the introduction, in this study MFDFA method was applied to study the multifractal characteristics of the analized temporal series. The MFDFA is a well-known technique, and is commonly used to detect multifractality in a time series \cite{Kantelhardt}. \\
+The steps of the algorithm are very similar to those described in DFA section where the profile must be constructed, then divide the series into windows and eliminate trends with a fitted polynomial. For each segment $v$, $v=1,\ldots,N_s$  we compute the variance:
 \begin{equation}
-X(i)=\sum_{k=1}^i[x(k)-x_{ave}].
-\label{eq:signal}
+ 	F^2 (s,v)=\frac{1}{s} \sum_{i=1}^s\{y[N-(v-N_s )s+k]-y_n (k)\}^2
+ 	\label{eq:var2}
 \end{equation}
 
-The profile is sub-divided into $N_s=int(N/s)$ non-overlapping windows of equal length $s$. Since the length $N$ of the series may not be an integer multiple of the window size $s$, and a short part of the profile $Y(i)$ at the end may be disregarded by the procedure, the sub-division is performed also starting from the opposite end, obtaining a total of $2N_S$ segments. A polynomial of degree $m$ fits the profile in each of the $2N_S$ windows and the variance is calculated by using the following formula:
-
-\begin{equation}
-F^2 (s,v)=\frac{1}{s} \sum_{i=1}^s\{X[(v-1)s+i]-y_v (i)\}^2.
-\label{eq:var1}
-\end{equation}
-
-For each segment $v$, $v=1,\ldots,N_s$  and
- 
-\begin{equation}
-F^2 (s,v)=\frac{1}{s} \sum_{i=1}^s\{X[N-(v-N_s )s+i]-y_v (i)\}^2
-\label{eq:var2}
-\end{equation}
-
-where $v=N_s+1,\ldots,2N_s$. Here $y_v (i)$  is the fitting polynomial in segment $v$. 
-
+where $v=N_s+1,\ldots,2N_s$. Here $y_v (i)$  is the fitting polynomial in segment $v$. \\
 Then, averaging over all segments the $q_{th}$ order fluctuation function is computed
 
 \begin{equation}
@@ -177,13 +154,14 @@ F_q (s)=\left\lbrace \frac{1}{2N_s} \sum_{v=1}^{2N_s}[F^2 (s,v)]^{\frac{q}{2}}\r
 \label{eq_f}  
 \end{equation}
 
-where, in general, the index variable $q$ can take any real value except zero. $F_q (s)$ will increase with increasing $s$ and if $F_q (s)$  behave as a power-law of $s$ the series is scaling for that specific $q$. In this case
+where, in general, the index variable $q$ can take any real value except zero. $F_q (s)$ will increase with increasing $s$ and if $F_q (s)$  behave as a power-law of $s$ the series is scaling for that specific $q$.
+
 
 \begin{equation}
 F_q (s) \propto s^{h_q}.
 \end{equation}
 
-The exponent $h_q$ is called generalized Hurst exponent due to the equivalence between $h_2$  and the Hurst exponent ($H$) for stationary series, leading to consider the well know DFA \cite{Peng} a particular case of the MFDFA for $q=2$ \cite{Kantelhardt_2, Zhang}. For $q=0$ the value $h_0$ corresponds to the limit $h_q$ for $q \rightarrow 0$, and is obtained through a logarithmic averaging procedure:
+The exponent $h_q$ is called generalized Hurst exponent due to the equivalence between $h_2$ and the Hurst exponent ($H$) for stationary series, leading to consider the well know DFA \cite{Peng} a particular case of the MFDFA for $q=2$ \cite{Kantelhardt_2, Zhang}. It can be seen  in Eq.\ref{eq:var2} and Eq.\ref{eq_f}. For $q=0$ the value $h_0$ corresponds to the limit $h_q$ for $q \rightarrow 0$, and is obtained through a logarithmic averaging procedure:
 
 \begin{equation}
 F_0(s) \equiv exp \left\lbrace \frac{1}{4N_s} \sum_{v=1}^{2N_s} ln[F^2 (s,v)]\right\rbrace  \propto s^{h_0}.
@@ -196,7 +174,7 @@ For monofractal series $h(q)$ is independent of $q$ because the behavior of $F^2
 \label{eq:Reny}
 \end{equation}
 
-The application of the Legendre transform to $\tau(q)$ 
+The application of the Legendre transform to $\tau(q)$ allows us to characterize a multifractal time series through its multifractal spectrum.
 
 \begin{equation}
 \alpha=d\tau/dq
@@ -206,7 +184,7 @@ The application of the Legendre transform to $\tau(q)$
 f(\alpha)=q\alpha-\tau(q)
 \end{equation}
 
-allows us to characterize a multifractal time series through its multifractal spectrum. In the above equation $\alpha$ is the H\"older exponent and $f(\alpha)$ is the singularity spectrum that indicates the dimension of the subset of the series that is characterized by $\alpha$. The multifractal spectrum indicates how much dominant are the various fractal exponents present in the series. The width of the spectrum, as well as the range of the generalized Hurst exponent $(max(h_q)-min (h_q))$, are often used to quantitatively measure the degree of multifractality of the series. Thus, the wider the spectrum the more multifractal the series is.
+In the above equation $\alpha$ is the H\"older exponent and $f(\alpha)$ is the singularity spectrum that indicates the dimension of the subset of the series that is characterized by $\alpha$. The multifractal spectrum indicates how much dominant are the various fractal exponents present in the series and its width, as well as the range of the generalized Hurst exponent $(max(h_q)-min (h_q))$, are often used to quantitatively measure the degree of multifractality of the series. Thus, the wider the spectrum the more multifractal the series is.
 
 In order to characterize the complexity of the studied process, it is possible to extract a set of parameters from the spectrum. To do this, we adjust the singularity spectrum to a fourth degree polynomial:
 
@@ -214,7 +192,7 @@ In order to characterize the complexity of the studied process, it is possible t
 f(\alpha) =  A + B(\alpha - \alpha_0) + C(\alpha - \alpha_0)^2 + D(\alpha - \alpha_0)^3 + E(\alpha - \alpha_0)^4
 \end{equation}
 
-and we calculate the following parameters of the multifractal spectrum: the position of the maximum of the spectrum $\alpha_0$, the width of the spectrum $\omega = \alpha_{max}-\alpha_{min}$, where $\alpha_{max}$ indicates the value of the most extreme events and $\alpha_{min}$that of the softest ones, and, finally, the asymmetry parameter given by $a_s = (\alpha_0-\alpha_{min})/(\alpha_{max}-\alpha_0)$. The parameter $\alpha_0$ provides an estimate of the value of the Hurst exponent, in general a value of $\alpha_0 > 0.5$ indicates a correlated or persistent process, and $\alpha_0 < 0.5$ an anti-correlated or anti-persistent process, while $\alpha_0 = 0.5$ indicates a totally random process. The parameter $\omega$, as indicated above, is the width of the spectrum and measures the amplitude of the fractal exponents necessary to describe the signal. The greater the multifractality of the process, the greater the width of the spectrum. The asymmetry parameter $a_s$ allows us to measure the skewness of $f(\alpha)$, $a_s<1$ indicates a rigth skewed spectrum while $a_s>1$ a left skewed one.The importance of this parameter resides in that it provides us with information  the prevalence of small and large fluctuations in the multifractal spectrum. If $a_s = 1$, the spectrum is symmetric and both large and small fluctuations contribute equally to multifractality. On the other hand, if the spectrum is asymmetric to the right, the greatest contribution to the multifractal spectrum is given by the subsets with small fluctuations and finally, an asymmetric spectrum to the left indicates that the subsets with large fluctuations are those that contribute the most to the multifractal spectrum.
+and we calculate the following parameters of the multifractal spectrum: the position of the maximum of the spectrum $\alpha_0$, the width of the spectrum $\omega = \alpha_{max}-\alpha_{min}$, where $\alpha_{max}$ indicates the value of the most extreme events and $\alpha_{min}$that of the softest ones, and, finally, the asymmetry parameter given by $a_s = (\alpha_0-\alpha_{min})/(\alpha_{max}-\alpha_0)$. The parameter $\alpha_0$ provides an estimate of the value of the Hurst exponent, in general a value of $\alpha_0 > 0.5$ indicates a correlated or persistent process, and $\alpha_0 < 0.5$ an anti-correlated or anti-persistent process, while $\alpha_0 = 0.5$ indicates a totally random process. The parameter $\omega$, as indicated above, is the width of the spectrum and measures the amplitude of the fractal exponents necessary to describe the signal. The asymmetry parameter $a_s$ allows us to measure the skewness of $f(\alpha)$, $a_s<1$ indicates a right skewed spectrum while $a_s>1$ a left skewed one. The importance of this parameter resides in that it provides us with information  the prevalence of small and large fluctuations in the multifractal spectrum. If $a_s = 1$, the spectrum is symmetric and both large and small fluctuations contribute equally to multifractality. On the other hand, if the spectrum is asymmetric to the right, the greatest contribution to the multifractal spectrum is given by the subsets with small fluctuations and finally, an asymmetric spectrum to the left indicates that the subsets with large fluctuations are those that contribute the most to the multifractal spectrum.
 
 In summary, these parameters allow us to evaluate the complexity of the process: a time series with a high value of $\alpha_0$, a wide range of fractal exponents, and a right-skewed spectrum can be considered more complex than one with opposite characteristics.
 
@@ -222,31 +200,31 @@ In summary, these parameters allow us to evaluate the complexity of the process:
 
 DCCA was developed by Podobnik et al. \cite{Podobnik} from the well-known DFA method \cite{Peng} with the objective of quantifying the long-term cross-correlation of two non-stationary time series. 
 
-In summary, the method consists of dividing the previously integrated time series $X(k),Y(k)$ into $N_n$ segments of equal length $n$, and in each of them applying an ordinary linear regression to capture the local trend. 
-The integrate series $y_{n,s}(k)$ is then detrended by substracting the local trend from the data in each box and the detrended covariance is calculated as
+In summary, the method consists of dividing the previously integrated time series $y(k)$ into $N_s$ segments of equal length $s$, and in each of them applying an ordinary linear regression to capture the local trend. 
+The integrate series $y_{v,s}(k)$ is then detrended by substracting the local trend from the data in each box and the detrended covariance is calculated as
 
 \begin{equation}
-F^2_{DCCA}(n) = \dfrac{1}{nN_n}\sum_{s=0}^{N_n-1}\sum_{k=ns+1}^{n(s+1)}\left[X(k)-X_{n,s+1}(k\right] \left[Y(k)-Y_{n,s+1}(k)\right]
+F^2_{DCCA}(v) = \dfrac{1}{vN_s}\sum_{s=0}^{N_s-1}\sum_{k=vs+1}^{v(s+1)}\left[y(k)-y_{v,s+1}(k)\right] \left[y_n(k)-y_{n[v,s+1]}(k)\right]
 \end{equation}
 
-The relationship between the length $n$ of the segments and $F_{DCCA}$ is obtained by repeating the calculation for all segments sizes. In case that cross-correlation between series decay as a power law, then the detrending covarianze grows with the time scale as
+The relationship between the length $s$ of the segments and $F_{DCCA}$ is obtained by repeating the calculation for all segments sizes. In case that cross-correlation between series decay as a power law, then the detrending covarianze grows with the time scale as
 
 \begin{equation}
-F_{DCCA}\sim n^\lambda
+F_{DCCA}\sim s^\lambda
 \end{equation}
 
-where  is the DCCA cross-correlation exponent. The value of $\lambda$ the scaling exponent can be calculated from a linear regression on a plot of $\log F$ vs $\log \lambda$. If,however, the detrended covariance oscillates around zero as a function of the time scale, there are no long-range cross-correlations.
+where $\lambda$ is the DCCA cross-correlation exponent. The value of $\lambda$ can be calculated from a linear regression on a plot of $\log F$ vs $\log \lambda$. If, however, the detrended covariance oscillates around zero as a function of the time scale, there are no long-range cross-correlations.
 
-In order to quantify the information about cross correlations provided by the DCCA Zebende (2011) built a correlation coefficient that allows to quantify cross-correlation levels across time scales between two different time series. This approach combines the DCCA with the detrended fluctuation analysis (DFA). This Detrended cross-correlation coefficient is defined as the ratio between the detrended covariance function $F^2_{DCCA}$ and the detrended variance function \cite{Zebende}
+In order to quantify the information about cross correlations provided by the DCCA, Zebende (2011) built a correlation coefficient that allows to quantify cross-correlation levels across time scales between two different time series ()$X$ and $Y$). This approach combines the DCCA with the detrended fluctuation analysis (DFA). This Detrended cross-correlation coefficient is defined as the ratio between the detrended covariance function $F^2_{DCCA}$ and the detrended variance function \cite{Zebende}
 \begin{equation}
-    \rho_{DCCA}(n) =\dfrac{F^2_{DCCA(n)}}{F_{DFA_X}F_{DFA_Y}}
+    \rho_{DCCA}(s) =\dfrac{F^2_{DCCA(s)}}{F_{DFA_X}F_{DFA_Y}}
 \end{equation}
-where $F_{DFA_X}$ stands for the DFA method applied to the serie $X$.
+where $F_{DFA_X}$ stands for the DFA method applied to the serie $X$ and $F_{DFA_y}$ for series $Y$ .
 
 DCCA coefficient is a dimensionless quantity and its
-values are ranging between $-1 \leq \rho_{DCCA} \leq$. If $\rho = 1$ perfect cross-correlation between series exist,if $\rho = -1$ perfect anticross-correlation exist and there is no cross-correlation bewtween the series if $\rho = 0$. 
+values are ranging between $-1 \leq \rho_{DCCA} \leq 1$. If $\rho = 1$, it means that a perfect cross-correlation between series exists, if $\rho = -1$ perfect anticross-correlation exists and there is no cross-correlation between the series if $\rho = 0$. 
 
-MF-DCCA is a generalization of the DCCA introduced by Zhou \cite{Zhou} and differs from MFDFA in that there are now two detrended signals  $\tilde{X}_v(s,i)$ and $\tilde{Y}v(s,i)$ in each window. Therefore, the variance defined in equations \ref{eq:var1} and \ref{eq:var2} becomes covariance
+MF-DCCA is a generalization of the DCCA introduced by Zhou \cite{Zhou} and differs from MFDFA in that there are now two detrended signals  $\tilde{X}_v(s,i)$ and $\tilde{Y}v(s,i)$ in each window. Therefore, the covariance is defined as
 
 \begin{equation}
 F_{XY}^2 (s,v)=\frac{1}{s} \sum_{i=1}^s\tilde{X}_v(s,i)\tilde{Y}_v(s,i)
@@ -271,7 +249,7 @@ For $q=2$, the standard DCCA is retrieved.
 In the case that there is a correlation between the two series, we can express the relationship between $F$ and $s$ as
 
 \begin{equation}
-F_q(s) \sim n^\lambda(q)
+F_q(s) \sim s^\lambda(q)
 \end{equation}
 
 If $\lambda(q)=0.5$ the two series are not correlated, which means that changes in one do not cause changes in the other. The case $\lambda(q) > 0.5$ indicates the presence of a persistent cross-correlation, which means it is likely that the increase in one series is followed by an increase in the other. Finally if the cross correlation is anti-persistent $\lambda(q) < 0.5$.
