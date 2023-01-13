@@ -63,9 +63,6 @@ This is way the main purpose of this article is to study the cross-correlations 
 
 The paper is organized as follows: in Section 2 the data used are presented. In Section 3 we describe the methods we use in this article. In section 4 we show and discuss the obtained results. Finally we present conclusions in the last section. 
 
-*********************************
-Agregar un parrafo donde se comente que en trabajos previos se encontró una ley de potencias con exponentes *** pero que no se realizaron estudios estadísticos adecuados o a los que les falta fundamento estadísitico.
-*********************************
 
 \section{Data}
 \label{sec:Data}
@@ -259,23 +256,10 @@ Like for the MFDFA if $\lambda(q)$ does not change with $q$, the cross-correlati
 
 
 \section{Results}
-\label{resultados}
+\label{sec:resultados}
 
 \subsection{DFA}
 \label{results_dfa}
-
-%\begin{table}[]
-%\begin{tabular}{lrccrc}
-%\hline
-%\multicolumn{1}{c}{Index} & \multicolumn{1}{c}{$<x>$} & $\sigma$ & $x_{min}$ & \multicolumn{1}{c}{$\alpha$} & $\sigma_{\alpha}$ \\ \hline
-%Darwin                    & -0.00037                  & 1.652    & 4.400     & 11.549                       & 3.73              \\
-%Tahity                    & 0.00112                   & 1.360    & 1.799     & 4.512                        & 0.19              \\
-%SOI                       & 0.00109                   & 1.018    & 1.060     & 3.679                        & 0.12              \\
-%BEI                       & -0.00036                  & 0.498    & 1.099     & 6.997                        & 0.69              \\ \hline
-%\end{tabular}
-%\caption{}
-%\label{tab:1}
-%\end{table}
 
 Firstly we applied the DFA method to the three time series. The size of the analyzed windows ranges from 10 to $N/4$ where $N$ is the length of each series. The double log plot of the fluctuation function for the studied data are shown in Fig. \ref{fig:dfa}. In this figure we can see that the value of scale exponent for large window sizes is well below than 0.5 in the cases of Darwin and SOI indexes suggesting that the series are anti-persistent. This behavior means that an increase in the current period is more likely followed by a decrease in the next period and vice versa. In the case of SOI we can observe a crossover at $\log(s) = 1.7$ that allows us to differentiate between two different scale regimes. The value of the exponent before the crossover reveals a persistent behaviour of the $1/f$ type (pink noise). Interestingly the value of the scale exponent is close to 0.5 for the Tahity case. This fact is more noticeable when several orders of the DFA method are applied. For example for the DFA2 (second order) the value of the exponent is 0.52. Therefore, in the case of Tahity, we cannot ensure that there are long-range correlations. 
 
@@ -314,9 +298,9 @@ The next step was to study the full range of generalized Hurst exponents by mean
 \hline
 
    & $\alpha_{min}$  & $\alpha_{max}$ & $\alpha_0$ & $f(\alpha_{min})$ & $f(\alpha_{max})$ & $\omega$& $a_s$ \\ \hline
-Darwin   & 0.31  & 0.36  & 0.32  & 0.92 &  0.87 &  0.05 &  0.05 \\
-Tahity     & 0.34  & 0.52  & 0.45  & 0.51 &  0.64 &  0.19 &  -0.13 \\
-SOI     & 0.42  & 1.01  & 0.65  & 0.39 &  0.52 &  0.59 &  0.34 \\
+Darwin   & 0.33  & 0.43  & 0.37  & 0.81 &  0.70 &  0.10 &  0.11 \\
+Tahity     & 0.35  & 0.61  & 0.49  & 0.45 &  0.52 &  0.26 &  -0.07 \\
+SOI     & 0.44  & 1.05  & 0.68  & 0.30 &  0.06 &  0.61 &  0.24 \\
 \hline
 \end{tabular}
 \caption{Characteristics of the multifractal spectrum}
@@ -441,7 +425,7 @@ Also, we observe that for the pairs Darwin-SOI and Tahity-SOI, the values inhere
 
 Fig. \ref{fig:mfdcca_tau} displays the $\tau(q)$ vs $q$ plots for each pair of series. The concavity of the function $\tau(q)$ for the pairs between the stations and the SOI show us the nonlinearly dependent of the scaling function on $q$. This behaviour gives evidence of multifractality in the Darwin-SOI and Tahity-SOI pairs. On the contrary, the function $\tau(q)$ is almost linear for the Darwin-Tahity case confirming what we was seen in the plot of $H(q)$.
 
-Finally, fig. \ref{fig:mfdcca_spectrum} shows the singulsarity spectrum for the bivarite time series. The width of the spectrum can be used to estimate the level of the multifractality. The widths of the cross-correlation multifractal spectra for the Darwin-SOI and Tahity-SOI bivariate series Darwin-SOI and Tahity-SOI, which imply that there are stronger cross-correlation multifractal features between the SOI and stations series. In Table \ref{tab:mfdcca} we present values of different parameters of the multifractal spectra the parameters obtained from the fit of the plots with a fourth degree polynomial.
+Finally, fig. \ref{fig:mfdcca_spectrum} shows the singularity spectrum for the bivarite time series. The width of the spectrum can be used to estimate the level of the multifractality. The widths of the cross-correlation multifractal spectra for the Darwin-SOI and Tahity-SOI bivariate series Darwin-SOI and Tahity-SOI, which imply that there are stronger cross-correlation multifractal features between the SOI and stations series. In Table \ref{tab:mfdcca} we present values of different parameters of the multifractal spectra the parameters obtained from the fit of the plots with a fourth degree polynomial.
 
 \begin{table}[t]
 \begin{center}
@@ -459,8 +443,18 @@ Darwin-Tahity     & 0.37  & 0.44  & 0.39  & 0.87 &  0.82 &  0.07 &  0.06 \\
 \end{center}
 \end{table}
 
-The large values of $\alpha_0$, the wider range of fractal exponents and the right-skewed shape that the curves of Darwin-SOI and Tahity-SOI presents,  may be considered a sign of the presence of more complex behaviors in the cross-correlations than the one presented by the Darwin-Tahity time series.
+The large values of $\alpha_0$, the wider range of fractal exponents and the right-skewed shape that the curves of Darwin-SOI and Tahity-SOI presents,  may be considered a sign of the presence of more complex behaviors in the cross-correlations than the one presented by the Darwin-Tahity time series. The left-sided asymmetry corresponds to a multifractality on the level of larger fluctuations
+.
+In short, our analysis shows that the time series corresponding to the correlations between the SOI and the stations series have features of multifractality.
 
+\section{Conclusions}
+\label{sec:conclusions}
+
+In this paper we use the Detrended Fluctuation Analysis (DFA) method and a multifractal extension of it (MFDFA) to investigate the monofractal and multifractal properties of the the time series of pressure at the sea leavel generated by the Darwin and Tahiti stations. Also we applies these methods to de SOI index. We found evidence of multifractality in the cases of the Tahity and SOI indices. By analyzing the behaviour of the surrogate and shuffle series we show that the main source of multifractality are the long-range correlations. It is interesting to highlight the strong multifractal behavior of the series corresponding to the Tahity station compared to the almost null of the Darwin station series.
+
+We also investigate the cross-correlations between Darwin-Taihty, Darwin-SOI and Tahity-SOI pairs of data by means of the DCCA and MF-DCCA methods. As expected the application of the DCCA method revealed the existence of a significant cross-correlated behavior in the cases of Darwin-SOI and Tahity-SOI series. Finally we apply the MF-DCCA method to analyze the multifractal properties of the cross-correlations. The results obtained through the MF-DCCA method imply that multifractality exists in the cross-relations between the SOI and the Darwin and Tahity stations.
+
+ 
 \begin{thebibliography}{99}
 \bibitem{Kantelhardt}
 Kantelhardt, J.W.; Zschiegner, S.A.; Koscielny-Bunde, E.; Havlin, S.; Bunde, A.; Stanley, H. Multifractal detrended fluctuation analysis of nonstationary time series. {\em Phys. A Stat. Mech. Appl.} {\bf 2002}, {\em 316}, 87--114.
