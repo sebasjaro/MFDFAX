@@ -53,13 +53,12 @@ Several studies reported that the SOI index has multifractal characteristics. Va
 
 This is way the main purpose of this article is to study the cross-correlations between the time series of the surface air pressure measured at the Tahiti and Darwin stations under the fractal framework theory. As far as we know, there are no published works that analyze the cross-correlations between both time series. In this article we analyze the cross-correlations between the Darwin and Tahiti monthly surface air pressure by the means of the MultiFractal Detrended Fluctuation cross-correlation Analysis (MFDFA) method.
 
-The paper is organized as follows: in Section 2 the data used are presented. In Section 3 we describe the methods we use in this article. In section 4 we show and discuss the obtained results. Finally we present conclusions in the last section. 
-
+The paper is organized as follows: in Section 2 the data used are presented. In Section 3 we describe the methods we use in this article. In section 4 we show and discuss the obtained results. Finally we present conclusions in the last section.
 
 \section{Data}
 \label{sec:Data}
 
-The Southern Oscillation Index (SOI) is one measure of the fluctuations in air pressure occurring between the western and eastern tropical Pacific. Traditionally, this index has been calculated based on the differences in air pressure at sea level between the island of Tahiti and the city of Darwin, Australia. The existence of sustained negative values of the SOI frequently indicate episodes of the El Niño phenomenon. Those negative values are usually accompanied by a sustained warming in the central and eastern tropical Pacific Ocean, a decrease in the strength of the Pacific winds and  a reduction in rainfall in eastern and northern Australia.  On the other hand, positive SOI values are associated with strong winds from the Pacific and a warming of the sea north of Australia, popularly called La Niña. These positive values are generally accompanied by cooling of the waters of the central and eastern tropical Pacific Ocean and an increased probability that eastern and northern Australia will be wetter than normal.
+The Southern Oscillation Index (SOI) is one measure of the fluctuations in air pressure occurring between the western and eastern tropical Pacific. Traditionally, this index has been calculated based on the differences in air pressure at sea level between the island of Tahiti and the city of Darwin, Australia. The existence of sustained negative values of the SOI frequently indicate episodes of the El Niño phenomenon. Those negative values are usually accompanied by a sustained warming in the central and eastern tropical Pacific Ocean, a decrease in the strength of the Pacific winds and  a reduction in rainfall in eastern and northern Australia.  On the other hand, positive SOI values are associated with strong winds from the Pacific and a warming of the sea north of Australia, popularly called La Niña. These positive values are generally comes along with the cooling of the waters of the central and eastern tropical Pacific Ocean and an increased probability that eastern and northern Australia will be wetter than normal.
 
 Time series in present study were obtained from the Climatic Research Unit, University of East Anglia. The time period spanning from January 1866 to December 2021. The Data contains the surface air pressure measured at the Tahiti ($17^{\circ}$ 40 S, $149^{\circ}$ 25 W) and Darwin stations  ($12^{\circ}$ 27 S, $130^{\circ}$ 50 E) as well as the SOI index values.
 The SOI, Thaity and Darwin time series are plotted as a function of time in Figs. \ref{fig:SOI} and \ref{fig:stations}. 
@@ -108,7 +107,7 @@ Kurtosis  & 0.217  & -0.948 & -0.200 \\ \hline
 
 The detrended fluctuation analysis (DFA) developed by Peng et al. \cite{Peng_3} is an important method  to detect the presence of long-range correlations in time series. By applying DFA, an exponent similar to Hurst is obtained, with the difference that this method can also be applied when the dynamics are not stationary. The DFA has been successfully applied to a wide range of time series in various fields such as  analysis of DNA \cite{Buldyrev_2},\cite{Buldyrev_3}, heart rate dynamics \cite{Peng_2}, \cite{Viswanathan} , \cite{Echeverria}, economical time series \cite{Cizeau}, \cite{Ausloos}, \cite{Jaroszewicz}, \cite{Mariani}, geophysics \cite{Ribeiro}, among others.
 
-We can summarize the DFA procedure in the next three steps
+We can summarize the DFA procedure in the next four steps
 
 \begin{enumerate}
 \item Let $A(k)$ be a possibly non-stationary time series of length $N$. We, first, construct the trajectory or the 'profile' by subtracting from the times series its average and the summing cumulatively.
@@ -135,7 +134,7 @@ The steps of the algorithm are very similar to those described in DFA section wh
  	\label{eq:var2}
 \end{equation}
 
-where $v=N_s+1,\ldots,2N_s$. Here $y_v (i)$  is the fitting polynomial in segment $v$. \\
+where $v=N_s+1,\ldots,2N_s$. Here $y_n (i)$  is the fitting polynomial in segment $v$. \\
 Then, averaging over all segments the $q_{th}$ order fluctuation function is computed
 
 \begin{equation}
@@ -324,9 +323,9 @@ In Fig. \ref{fig:spectrum} the multifractal spectrum for the three series is sho
 
 
 
-Two sources of multifractality can be recognized: (i) multifractality due to a broad probability density function of the values of the series, and (ii) different long range correlations for small and large fluctuations. To test the type of multifractality one can remove the temporal correlations by random shuffling the series. If the multifractality is of the type stated in the second case the spectrum should be significantly narrowed. Random shuffling simply consists of generating a new time series by randomly permuting the elements of the original series. in order to check if multifractality comes from broad distributions, we analyze surrogate data. To generate them we apply amplitude adjusted fourier transform to the original series. The surrogate time series data did not destroy the correlation characteristics of the original time series data, it only weakened the Gaussian distribution of the original time series data. Therefore, if the multifractality comes from broad distributions, the spectrum of the surrogated series should show the absence of multifractality. Table \ref{tab:mfdfa_compar} details the main characteristics of the spectra of the original, shuffled and surrogated series.
+Two sources of multifractality can be recognized: (i) multifractality due to a broad probability density function of the values of the series, and (ii) different long range correlations for small and large fluctuations. To test the type of multifractality one can remove the temporal correlations by random shuffling the series. If the multifractality is of the type stated in the second case the spectrum should be significantly narrowed. Random shuffling simply consists of generating a new time series by randomly permuting the elements of the original series. in order to check if multifractality comes from broad distributions, we analyze surrogate data. To generate them we apply amplitude adjusted Fourier transform to the original series. The surrogate time series data did not destroy the correlation characteristics of the original time series data, it only weakened the Gaussian distribution of the original time series data. Therefore, if the multifractality comes from broad distributions, the spectrum of the surrogated series should show the absence of multifractality. %Table \ref{tab:mfdfa_compar} details the main characteristics of the spectra of the original, shuffled and surrogated series.
 
-As we can see in fig. \ref{fig:spectrum_shuffle} the singularity spectrum $f(\alpha)$ for the shuffled series is narrower than that of the originals ones and $\alpha_0$ is close to 0.5. 
+As we can see in Fig. \ref{fig:spectrum_shuffle} the singularity spectrum $f(\alpha)$ for the shuffled series is narrower than that of the originals ones and $\alpha_0$ is close to 0.5. 
 
 In order to obtain surrogates we applied the iterate amplitud adjusted Fourier transform (IAAFT). Fig \ref{fig:spectrum_surrogate} shows the singularity spectrum obtained from surrogate data. 
 
@@ -370,7 +369,7 @@ We continued our analysis by applying the DCCA method described in the previous 
 
 \begin{figure}
 \centering{\includegraphics[width=.6\textwidth]{rhoDCCA_stations.pdf}} 
-\caption{DCCA cross-correlation coefficient between the two stations (points). The lines corresponds to the 95\% confidence intervals levesl for test of absence of correlation.}
+\caption{DCCA cross-correlation coefficient between the two stations (points). The lines corresponds to the 95\% confidence intervals levels for test of absence of correlation.}
 \label{fig:rho_stations}
 \end{figure}
 
@@ -386,7 +385,7 @@ We continued our analysis by applying the DCCA method described in the previous 
 \label{fig:rho_tah_soi}
 \end{figure}
 
-In the figures We can see that the cross-correlations coefficients tend to stabilize from values of n around 100. It can also be observed that the values of the coefficients are outside the region limited by the confidence intervals, which indicates the the existence of significant cross-correlated behaviors. Generally, we can conclude that the cross-correlations are significant, especially for the correlations between the stations and the SOI index.
+In the figures we can see that the cross-correlations coefficients tend to stabilize from values of n around 100. It can also be observed that the values of the coefficients are outside the region limited by the confidence intervals, which indicates the the existence of significant cross-correlated behaviors. Generally, we can conclude that the cross-correlations are significant, especially for the correlations between the stations and the SOI index.
 
 \subsection{MF-DCCA}
 \label{results_mfdcca}
@@ -415,9 +414,9 @@ Also, we observe that for the pairs Darwin-SOI and Tahity-SOI, the values inhere
 \label{fig:mfdcca_spectrum}
 \end{figure}
 
-Fig. \ref{fig:mfdcca_tau} displays the $\tau(q)$ vs $q$ plots for each pair of series. The concavity of the function $\tau(q)$ for the pairs between the stations and the SOI show us the nonlinearly dependent of the scaling function on $q$. This behaviour gives evidence of multifractality in the Darwin-SOI and Tahity-SOI pairs. On the contrary, the function $\tau(q)$ is almost linear for the Darwin-Tahity case confirming what we was seen in the plot of $H(q)$.
+Fig. \ref{fig:mfdcca_tau} displays the $\tau(q)$ vs $q$ plots for each pair of series. The concavity of the function $\tau(q)$ for the pairs between the stations and the SOI shows us the nonlinearly dependent of the scaling function on $q$. This behaviour gives evidence of multifractality in the Darwin-SOI and Tahity-SOI pairs. On the contrary, the function $\tau(q)$ is almost linear for the Darwin-Tahity case confirming what we was seen in the plot of $H(q)$.
 
-Finally, fig. \ref{fig:mfdcca_spectrum} shows the singularity spectrum for the bivarite time series. The width of the spectrum can be used to estimate the level of the multifractality. The widths of the cross-correlation multifractal spectra for the Darwin-SOI and Tahity-SOI bivariate series Darwin-SOI and Tahity-SOI, which imply that there are stronger cross-correlation multifractal features between the SOI and stations series. In Table \ref{tab:mfdcca} we present values of different parameters of the multifractal spectra the parameters obtained from the fit of the plots with a fourth degree polynomial.
+Finally, fig. \ref{fig:mfdcca_spectrum} shows the singularity spectrum for the bivariate time series. The width of the spectrum can be used to estimate the level of the multifractality. The widths of the cross-correlation multifractal spectra for the Darwin-SOI and Tahity-SOI bivariate series Darwin-SOI and Tahity-SOI, which imply that there are stronger cross-correlation multifractal features between the SOI and stations series. In Table \ref{tab:mfdcca} we present values of different parameters of the multifractal spectra the parameters obtained from the fit of the plots with a fourth degree polynomial.
 
 \begin{table}[t]
 \begin{center}
@@ -442,7 +441,7 @@ In short, our analysis shows that the time series corresponding to the correlati
 \section{Conclusions}
 \label{sec:conclusions}
 
-In this paper we use the Detrended Fluctuation Analysis (DFA) method and a multifractal extension of it (MFDFA) to investigate the monofractal and multifractal properties of the the time series of pressure at the sea leavel generated by the Darwin and Tahiti stations. Also we applies these methods to de SOI index. We found evidence of multifractality in the cases of the Tahity and SOI indices. By analyzing the behaviour of the surrogate and shuffle series we show that the main source of multifractality are the long-range correlations. It is interesting to highlight the strong multifractal behavior of the series corresponding to the Tahity station compared to the almost null of the Darwin station series.
+In this paper we use the Detrended Fluctuation Analysis (DFA) method and a multifractal extension of it (MFDFA) to investigate the monofractal and multifractal properties of the the time series of pressure at the sea level generated by the Darwin and Tahiti stations. Also we applies these methods to de SOI index. We found evidence of multifractality in the cases of the Tahity and SOI indices. By analyzing the behaviour of the surrogate and shuffle series we show that the main source of multifractality are the long-range correlations. It is interesting to highlight the strong multifractal behavior of the series corresponding to the Tahity station compared to the almost null of the Darwin station series.
 
 We also investigate the cross-correlations between Darwin-Taihty, Darwin-SOI and Tahity-SOI pairs of data by means of the DCCA and MF-DCCA methods. As expected the application of the DCCA method revealed the existence of a significant cross-correlated behavior in the cases of Darwin-SOI and Tahity-SOI series. Finally we apply the MF-DCCA method to analyze the multifractal properties of the cross-correlations. The results obtained through the MF-DCCA method imply that multifractality exists in the cross-relations between the SOI and the Darwin and Tahity stations.
 
@@ -474,10 +473,11 @@ Phenomenon}, Cambridge University Press, Cambridge, UK, 2010.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 
+
+
 \bibitem{Kantelhardt}
 Kantelhardt, J.W.; Zschiegner, S.A.; Koscielny-Bunde, E.; Havlin, S.; Bunde, A.; Stanley, H. Multifractal detrended fluctuation analysis of nonstationary time series. {\em Phys. A Stat. Mech. Appl.} {\bf 2002}, {\em 316}, 87--114.
 % Reference 2
-
 \bibitem{Peng}
 Peng, C.-K.; Buldyrev, S.; Havlin, S.; Simons, M.; Stanley, H.E.; Goldberger, A.L. Mosaic organization of DNA nucleotides. {\em Phys. Rev. E} {\bf 1994}, {\em 49}, 1685--1689
 % Reference 3
@@ -531,7 +531,24 @@ Dickey, D.A.; Fuller, W.A. Likelihood Ratio Statistics for Autoregressive Time S
 Theiler J, Galdrikian B, Longtin A, Eubank S, Farmer D. J. Using surrogate data to detect nonlinearity in time series. In: {\em Nonlinear modeling and forecasting}. Casdagli M., Eubank S.(eds) Addison-Wesley, Redwood City, CA, 1992, 163--188
 \bibitem{Zebende}Zebende G, da Silva P A and Filho A M 2011 Study of crosscorrelation
 in a self-affine time series of taxi accidents.Physica A 390 1677–83
+
+\bibitem{Dijkstra} \textsc{H. A. Dijkstra},
+\textit{Nonlinear Physical Oceanography: A Dynamical
+Systems Approach to the Large Scale Ocean Circulation and
+El Ni\~no}, Springer Science, New York, 2005.
+
+\bibitem{Sarachik} \textsc{E. S. Sarachik and M. A. Cane},
+\textit{The El Ni\~no-Southern Oscillation
+Phenomenon}, Cambridge University Press, Cambridge, UK, 2010.
+
+\bibitem{Philander} \textsc{S.G. Philander},
+\textit{El Ni\~no, La Ni\~na and the Southern Oscillation},
+ Academic Press, San Diego, 1990.
  
+\bibitem{Walker} \textsc{Walker, G.}
+\textit{World weather}
+\textit{Quarterly Journal of the Royal Meteorological Society}, \textbf{8}, 54, 79-87,1928
+
 \bibitem{Peng_3} \textsc{C.K. Peng, S.V. Buldyrev, S. Havlin, M. Simons, H.E. Stanley, A.L. Goldberger},\textit{Mosaic organization of nucleotides.} Phys. Rev. E, 49 (1994), p. 1685
 
 \bibitem{Huang} \textsc{Huang, Norden E.  and Shen, Zheng  and Long, Steven R.  and Wu, Manli C.  and Shih, Hsing H.  and Zheng, Quanan  and Yen, Nai-Chyuan  and Tung, Chi Chao  and Liu, Henry H.}, \textit{The empirical mode decomposition and the Hilbert spectrum for nonlinear and non-stationary time series analysis}, \textit{Proceedings of the Royal Society of London. Series A: Mathematical, Physical and Engineering Sciences}, 454, 1971, 903-995, 1998
